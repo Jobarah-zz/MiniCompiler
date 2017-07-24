@@ -3,11 +3,33 @@
 #include "tokens.h"
 
 int token;
+void exprs();
 int expr();
 int term();
 int factor();
 int yylex();
 extern char *yytext;
+
+void exprs() {
+    token = yylex();
+
+    int r = expr();
+
+    printf("Result = %d\n", r);
+
+    while(1) {
+        if(token == TK_EOL) {
+            token = yylex();
+
+            if(token == TK_LEFT_PAR || token == TK_NUMBER) {
+                r = expr();
+                printf("Result = %d\n", r);
+            } else {
+                break;
+            }
+        }
+    }
+}
 
 int expr() {
     int result = term();
