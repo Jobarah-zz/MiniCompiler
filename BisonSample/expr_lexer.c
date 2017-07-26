@@ -790,7 +790,7 @@ YY_RULE_SETUP
 case 8:
 YY_RULE_SETUP
 #line 15 "expr.l"
-{ return TK_NUMBER; }
+{ yylval = atoi(yytext); return TK_NUMBER; }
 	YY_BREAK
 case 9:
 /* rule 9 can match eol */

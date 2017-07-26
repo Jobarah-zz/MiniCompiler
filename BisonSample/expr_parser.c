@@ -436,8 +436,8 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    21,    21,    22,    23,    25,    26,    27,    30,    31,
-      32,    35,    36
+       0,    21,    21,    22,    23,    26,    27,    28,    31,    32,
+      33,    36,    37
 };
 #endif
 
@@ -485,8 +485,8 @@ static const yytype_int8 yypact[] =
      means the default is an error.  */
 static const yytype_uint8 yydefact[] =
 {
-       4,     0,    11,     0,     2,     7,    10,     0,     1,     0,
-       0,     4,     0,     0,    12,     5,     6,     3,     8,     9
+       0,     0,    11,     0,     2,     7,    10,     0,     1,     0,
+       0,     3,     0,     0,    12,     5,     6,     4,     8,     9
 };
 
   /* YYPGOTO[NTERM-NUM].  */
@@ -534,7 +534,7 @@ static const yytype_uint8 yyr1[] =
   /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
 static const yytype_uint8 yyr2[] =
 {
-       0,     2,     1,     3,     0,     3,     3,     1,     3,     3,
+       0,     2,     1,     2,     3,     3,     3,     1,     3,     3,
        1,     1,     3
 };
 
@@ -1211,8 +1211,74 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-      
-#line 1216 "expr_parser.c" /* yacc.c:1646  */
+        case 2:
+#line 21 "expr.y" /* yacc.c:1646  */
+    { printf("%d\n", (yyvsp[0])); }
+#line 1218 "expr_parser.c" /* yacc.c:1646  */
+    break;
+
+  case 3:
+#line 22 "expr.y" /* yacc.c:1646  */
+    { printf("%d\n", (yyvsp[-1])); }
+#line 1224 "expr_parser.c" /* yacc.c:1646  */
+    break;
+
+  case 4:
+#line 23 "expr.y" /* yacc.c:1646  */
+    { printf("%d\n", (yyvsp[-2])); }
+#line 1230 "expr_parser.c" /* yacc.c:1646  */
+    break;
+
+  case 5:
+#line 26 "expr.y" /* yacc.c:1646  */
+    { (yyval) = (yyvsp[-2]) + (yyvsp[0]); }
+#line 1236 "expr_parser.c" /* yacc.c:1646  */
+    break;
+
+  case 6:
+#line 27 "expr.y" /* yacc.c:1646  */
+    { (yyval) = (yyvsp[-2]) - (yyvsp[0]); }
+#line 1242 "expr_parser.c" /* yacc.c:1646  */
+    break;
+
+  case 7:
+#line 28 "expr.y" /* yacc.c:1646  */
+    { (yyval) = (yyvsp[0]); }
+#line 1248 "expr_parser.c" /* yacc.c:1646  */
+    break;
+
+  case 8:
+#line 31 "expr.y" /* yacc.c:1646  */
+    { (yyval) = (yyvsp[-2]) * (yyvsp[0]); }
+#line 1254 "expr_parser.c" /* yacc.c:1646  */
+    break;
+
+  case 9:
+#line 32 "expr.y" /* yacc.c:1646  */
+    { (yyval) = (yyvsp[-2]) / (yyvsp[0]); }
+#line 1260 "expr_parser.c" /* yacc.c:1646  */
+    break;
+
+  case 10:
+#line 33 "expr.y" /* yacc.c:1646  */
+    { (yyval) = (yyvsp[0]); }
+#line 1266 "expr_parser.c" /* yacc.c:1646  */
+    break;
+
+  case 11:
+#line 36 "expr.y" /* yacc.c:1646  */
+    { (yyval) = (yyvsp[0]); }
+#line 1272 "expr_parser.c" /* yacc.c:1646  */
+    break;
+
+  case 12:
+#line 37 "expr.y" /* yacc.c:1646  */
+    { (yyval) = (yyvsp[-1]); }
+#line 1278 "expr_parser.c" /* yacc.c:1646  */
+    break;
+
+
+#line 1282 "expr_parser.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires

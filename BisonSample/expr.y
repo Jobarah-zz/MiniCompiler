@@ -18,20 +18,21 @@ void yyerror(const char *msg) {
 
 %%
 
-exprs: expr
-    | expr TK_EOL exprs
-    |
-
-expr: expr OP_ADD term
-    | expr OP_SUB term
-    | term
+exprs: expr { printf("%d\n", $1); }
+    | expr TK_EOL { printf("%d\n", $1); }
+    | expr TK_EOL exprs { printf("%d\n", $1); }
 ;
 
-term: term OP_MULT factor
-    | term OP_DIV factor
-    | factor
+expr: expr OP_ADD term { $$ = $1 + $3; }
+    | expr OP_SUB term { $$ = $1 - $3; }
+    | term { $$ = $1; }
 ;
 
-factor: TK_NUMBER
-    | TK_LEFT_PAR expr TK_RIGHT_PAR
+term: term OP_MULT factor { $$ = $1 * $3; }
+    | term OP_DIV factor { $$ = $1 / $3; }
+    | factor { $$ = $1; }
+;
+
+factor: TK_NUMBER { $$ = $1; }
+    | TK_LEFT_PAR expr TK_RIGHT_PAR { $$ = $2; }
 ;
